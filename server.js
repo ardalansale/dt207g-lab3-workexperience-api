@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 });
 
 // GET Hämta alla arbetserfarenheter
-app.get("/api/work", async (req, res) => {
+app.get("/api/workexperience", async (req, res) => {
     try {
         const works = await WorkExperience.find();
         res.json(works);
@@ -33,7 +33,7 @@ app.get("/api/work", async (req, res) => {
 });
 
 // POST Lägg till ny arbetserfarenhet
-app.post("/api/work", async (req, res) => {
+app.post("/api/workexperience", async (req, res) => {
     try {
         const { company, role, duration, description } = req.body;
 
@@ -50,7 +50,7 @@ app.post("/api/work", async (req, res) => {
 });
 
 // PUT - Uppdatera en post
-app.put("/api/work/:id", async (req, res) => {
+app.put("/api/workexperience/:id", async (req, res) => {
     try {
         const { company, role, duration, description } = req.body;
 
@@ -75,7 +75,7 @@ app.put("/api/work/:id", async (req, res) => {
 });
 
 // DELETE - Radera en post
-app.delete("/api/work/:id", async (req, res) => {
+app.delete("/api/workexperience/:id", async (req, res) => {
     try {
         const deletedWork = await WorkExperience.findByIdAndDelete(req.params.id);
         
